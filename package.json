@@ -1,11 +1,8 @@
 {
-  "devDependencies": {
-    "parcel": "^2.9.2"
-  },
   "name": "forkify",
   "description": "Recipe application with custom recipe uploads!",
   "version": "1.0.0",
-  "main": "index.html",
+  "default": "index.html",
   "dependencies": {
     "abortcontroller-polyfill": "^1.7.5",
     "ansi-styles": "^4.3.0",
@@ -84,6 +81,7 @@
     "regenerator-runtime": "^0.13.11",
     "resolve-from": "^4.0.0",
     "safe-buffer": "^5.2.1",
+    "sass": "^1.26.10",
     "semver": "^5.7.1",
     "source-map": "^0.6.1",
     "source-map-js": "^1.0.2",
@@ -102,7 +100,8 @@
     "xxhash-wasm": "^0.4.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -110,6 +109,10 @@
   },
   "author": "Zarko Dukic",
   "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.9.2",
+    "parcel": "^2.9.2"
+  },
   "bugs": {
     "url": "https://github.com/SenseiZarkoDukic/forkify-js-app/issues"
   },
