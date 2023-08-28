@@ -19,6 +19,7 @@
     "color-convert": "^2.0.1",
     "color-name": "^1.1.4",
     "commander": "^7.2.0",
+    "core-js": "^3.32.1",
     "cosmiconfig": "^8.2.0",
     "css-select": "^5.1.0",
     "css-tree": "^2.3.1",
