@@ -1,3 +1,5 @@
+import * as model from './model.js';
+
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
@@ -39,9 +41,11 @@ const showRecipe = async function () {
     console.log(id);
 
     if (!id) return;
-    // 1) Loading recipe
     renderSpinner(recipeContainer);
 
+    // 1) Loading recipe
+    await model.loadRecipe(id);
+    const { recipe } = model.state;
     // 2) Rendering recipe
     const markup = `
     <figure class="recipe__fig">
