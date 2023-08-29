@@ -4,10 +4,6 @@ import recipeView from './views/recipeView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-// import icons from '../img/icons.svg'; // Parcel 1
-import icons from 'url:../img/icons.svg'; // Parcel 2
-console.log(icons);
-
 const recipeContainer = document.querySelector('.recipe');
 
 const timeout = function (s) {
@@ -23,26 +19,14 @@ console.log('TEST');
 
 ///////////////////////////////////////
 
-const renderSpinner = function (parentEl) {
-  const markup = `
-  <div class="spinner">
-          <svg>
-            <use href="${icons}#icon-loader"></use>
-          </svg>
-        </div>
-  `;
-  parentEl.innerHTML = '';
-  parentEl.insertAdjacentHTML('afterbegin', markup);
-};
-
-const showRecipe = async function () {
+const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
 
     console.log(id);
 
     if (!id) return;
-    renderSpinner(recipeContainer);
+    recipeView.renderSpinner();
 
     // 1) Loading recipe
     await model.loadRecipe(id);
@@ -55,6 +39,8 @@ const showRecipe = async function () {
   }
 };
 
-['hashchange', 'load'].forEach(ev => window.addEventListener(ev, showRecipe));
+['hashchange', 'load'].forEach(ev =>
+  window.addEventListener(ev, controlRecipes)
+);
 // window.addEventListener('hashchange', showRecipe);
 // window.addEventListener('load', showRecipe);
