@@ -1,5 +1,5 @@
 import { async } from 'regenerator-runtime';
-import { API_URL } from './config';
+import { API_URL, MESSAGE } from './config';
 import { getJSON } from './helpers';
 
 export const state = {
@@ -25,5 +25,6 @@ export const loadRecipe = async function (id) {
   } catch (err) {
     // Temporary Error Handling
     console.error(`${err} 💥💥💥💥`);
+    throw err;
   }
 };
